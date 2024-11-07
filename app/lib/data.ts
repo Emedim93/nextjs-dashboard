@@ -8,6 +8,11 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+import { createPool } from '@vercel/postgres';
+
+const pool = createPool({
+  connectionString: process.env.POSTGRES_URL
+});
 
 export async function fetchRevenue() {
   try {
